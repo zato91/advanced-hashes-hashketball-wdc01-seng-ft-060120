@@ -224,17 +224,12 @@ def player_stats(name)
 end 
 
 def big_shoe_rebounds
-  gamehash = game_hash[:home][:players].push(game_hash[:away][:players]).flatten
-
-xo = []
-   sous.each { |ga| xo << ga[:shoe]}        
-     
- gouz = xo.max  
+g_hash = game_hash[:home][:players].push(game_hash[:away][:players]).flatten
+players_shoe_array = []
+g_hash.each { |ga| players_shoe_array << ga[:shoe]}        
+gou = players_shoe_array.max  
  
-  
- 
-  
-  xa = ""
- sous.each { |ga|  xa = ga[:rebounds]  if ga[:shoe] == gouz }  
-  xa 
+bigshoe_rebounds = ""
+g_hash.each { |ga|  bigshoe_rebounds = ga[:rebounds]  if ga[:shoe] == gou }  
+bigshoe_rebounds 
 end 
