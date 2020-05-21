@@ -226,10 +226,13 @@ end
 def big_shoe_rebounds
 g_hash = game_hash[:home][:players].push(game_hash[:away][:players]).flatten
 players_shoe_array = []
-g_hash.each { |ga| players_shoe_array << ga[:shoe]}        
+bigshoe_rebounds = ""
+
+g_hash.each { |ga| players_shoe_array << ga[:shoe]}    
+
 gou = players_shoe_array.max  
  
-bigshoe_rebounds = ""
+
 g_hash.each { |ga|  bigshoe_rebounds = ga[:rebounds]  if ga[:shoe] == gou }  
 bigshoe_rebounds 
 end 
