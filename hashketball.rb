@@ -1,4 +1,6 @@
 # Write your code below game_hash
+require "pry"
+
 def game_hash
   {
     home: {
@@ -127,3 +129,101 @@ def game_hash
 end
 
 # Write code here
+
+def num_points_scored(name)
+   
+    game_away = game_hash[:away][:players]
+    game_home = game_hash[:home][:players]
+    score = nil
+      
+    game_away.each do |ga|
+      if  ga[:player_name] == name 
+          score = ga[:points]
+      end 
+    end
+    
+    game_home.each do |gh|
+      if  gh[:player_name] == name 
+          score = gh[:points]
+      end 
+    end
+  score
+end 
+
+def shoe_size(name)
+  
+    game_away = game_hash[:away][:players]
+    game_home = game_hash[:home][:players]
+    score = nil
+      
+    game_away.each do |ga|
+      if  ga[:player_name] == name 
+          score = ga[:shoe]
+      end 
+    end
+    
+    game_home.each do |gh|
+      if  gh[:player_name] == name 
+          score = gh[:shoe]
+      end 
+    end
+  score
+end 
+
+def team_colors(name)
+
+    team_away = game_hash[:away][:team_name]
+    team_home = game_hash[:home][:team_name]
+     
+       if  team_away == name 
+         game_hash[:away][:colors]   
+       elsif team_home == name
+         game_hash[:home][:colors]  
+       end
+end 
+
+def team_names
+   a = game_hash[:away][:team_name]
+   b = game_hash[:home][:team_name]
+   x = [a,b]
+  
+end 
+
+def player_numbers(team)
+   team_away = game_hash[:away][:team_name]
+   team_home = game_hash[:home][:team_name]
+   aa = game_hash[:away][:players]
+   bb = game_hash[:home][:players]  
+     
+     if  team_away  == team 
+        aa.map {|ba|  ba[:number] }
+       elsif team_home == team
+         bb.map {|ba|  ba[:number] }
+       end
+       
+end 
+
+def player_stats(name)
+   # returns all stats for a given player 
+    game_away = game_hash[:away][:players]
+    game_home = game_hash[:home][:players]
+    score = nil
+      
+    game_away.each do |ga|
+      if  ga[:player_name] == name 
+          score = ga
+      end 
+    end
+    
+    game_home.each do |gh|
+      if  gh[:player_name] == name 
+          score = gh
+      end 
+    end
+  score
+end 
+
+def big_shoe_rebounds
+    game_hash.each do |location, team_data|
+    end 
+end 
